@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Route, Routes } from 'react-router-dom';
+import HomePage from './pages/HomPage';
+import CountryDetailsPage from './pages/CountryDetailsPage';
+import { getCountries } from './redux/countries-slice';
+import './styles/App.css';
 
 function App() {
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state.countries.countries);
+
+  useEffect(() => {
+    dispatch(getCountries());
+  }, [dispatch]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <>
+      <main>
+        <Routes>
+          <Route path="/" element={<HomePage countries={state} />} />
+          <Route path="/countries/" element={<HomePage countries={state} />} />
+          <Route path="/countries/:countryName" element={<CountryDetailsPage />} />
+        </Routes>
+      </main>
+    </>
   );
 }
 
