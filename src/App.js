@@ -4,7 +4,6 @@ import { Route, Routes } from 'react-router-dom';
 import HomePage from './components/HomPage';
 import CountryDetailsPage from './components/CountryDetailsPage';
 import { getCountries } from './redux/countries-slice';
-import './styles/App.css';
 
 function App() {
   const dispatch = useDispatch();

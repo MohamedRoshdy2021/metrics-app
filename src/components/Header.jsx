@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import styles from '../../styles/header.module.css';
-import micIcon from '../../images/mic-svgrepo-com.svg';
-import settingsIcon from '../../images/icons8-settings.svg';
-import leftArrowIcon from '../../images/left-arrow-svgrepo-com.svg';
+import styles from '../styles/header.module.css';
+import micIcon from '../images/mic-svgrepo-com.svg';
+import settingsIcon from '../images/icons8-settings.svg';
+import leftArrowIcon from '../images/left-arrow-svgrepo-com.svg';
 
 const Header = ({ title }) => (
     <header className={styles.header}>

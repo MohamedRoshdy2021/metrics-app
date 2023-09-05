@@ -3,62 +3,64 @@ import axios from 'axios';
 
 export const getCountries = createAsyncThunk('countries/getCountries', async () => {
   const response = await axios.get('https://restcountries.com/v3.1/all');
+  
   const filteredData = response.data.filter((country) => country.name.common !== 'Israel');
-  const palestineData = [{
+  
+  const EgyptData = [{
     flags: {
-      png: 'https://upload.wikimedia.org/wikipedia/commons/7/75/Flag_of_Palestine.png',
+      png: 'https://img.freepik.com/premium-vector/3d-realistic-pennant-with-flag_97886-2626.jpg',
     },
     name: {
-      common: 'Palestine',
-      official: 'State of Palestine',
+      common: 'Egypt',
+      official: 'State of Egypt',
     },
-    region: 'Asia',
-    capital: ['Ramallah'],
-    area: 27.009,
-    population: 5052776,
+    region: 'Africa',
+    capital: ['cairo'],
+    area: 1000.000,
+    population: 105052776,
     timezones: ['UTC+02:00'],
     currencies: {
       ILS: {
-        name: 'Jordanian dinar',
-        symbol: 'JD',
+        name: 'Egyption Pound',
+        symbol: 'EG',
       },
     },
     languages: {
       ara: 'Arabic',
     },
   }];
-  const data = [...palestineData, ...filteredData];
+  const data = [...EgyptData, ...filteredData];
   return data;
 });
 
 export const getCountry = createAsyncThunk('countries/getCountry', async (name) => {
   if (name === 'Israel') {
     return null;
-  } if (name === 'Palestine') {
-    const palestineData = {
+  } if (name === 'Egypt') {
+    const EgyptData = {
       flags: {
-        png: 'https://upload.wikimedia.org/wikipedia/commons/7/75/Flag_of_Palestine.png',
+        png: 'https://img.freepik.com/premium-vector/3d-realistic-pennant-with-flag_97886-2626.jpg',
       },
       name: {
-        common: 'Palestine',
-        official: 'State of Palestine',
+        common: 'Egypt',
+        official: 'State of Egypt',
       },
-      region: 'Asia',
-      capital: ['Ramallah'],
-      area: 27.009,
-      population: 5052776,
+      region: 'Africa',
+      capital: ['cairo'],
+      area: 1000.000,
+      population: 105052776,
       timezones: ['UTC+02:00'],
       currencies: {
         ILS: {
-          name: 'Jordanian dinar',
-          symbol: 'JD',
+          name: 'Egyption pound',
+          symbol: 'EG',
         },
       },
       languages: {
         ara: 'Arabic',
       },
     };
-    return palestineData;
+    return EgyptData;
   }
   const response = await axios.get(`https://restcountries.com/v3.1/name/${name}`);
   return response.data[0];
