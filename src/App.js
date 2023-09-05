@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import HomePage from './pages/HomPage';
-import CountryDetailsPage from './pages/CountryDetailsPage';
+import HomePage from './components/HomPage';
+import CountryDetailsPage from './components/CountryDetailsPage';
 import { getCountries } from './redux/countries-slice';
 import './styles/App.css';
 
