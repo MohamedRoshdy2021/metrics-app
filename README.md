@@ -13,9 +13,11 @@
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
+- [Video introduction](#Video-introduction)
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
+    - [Live-Link](#-live-link)
     - [Testing](#Testing)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
@@ -55,6 +57,10 @@
 <!-- Features -->
 <p> the project explanation </p> 
 
+### Video introduction <a name="Video-introduction"></a>
+
+- https://www.loom.com/share/6fc2d162e2f14702bfe8584ac5a13cfe
+
 ### Key Features <a name="key-features"></a>
 
 
@@ -62,12 +68,16 @@
 
 ### Testing <a name="Testing"></a>
 
-- coming soon
+- run npm run test
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LIVE DEMO -->
+
+## 💻 Live-Link <a name="Live-Link"></a>
+
+- https://styling--bright-cheesecake-408665.netlify.app/
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
