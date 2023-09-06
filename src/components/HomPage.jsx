@@ -13,7 +13,7 @@ const HomePage = ({ countries }) => {
 
   return (
     <>
-      <Header title="Countries" />
+      <Header title="Countries-Metrics" />
       <section>
         <input
           type="search"
