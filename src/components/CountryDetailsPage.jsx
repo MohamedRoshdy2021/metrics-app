@@ -1,26 +1,26 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import Header from '../components/Header';
+import Header from './Header';
 import { getCountry } from '../redux/countries-slice';
-import CountryInfo from '../components/CountryInfo';
+import CountryInfo from './CountryInfo';
 
 const CountryDetailsPage = () => {
-    const params = useParams();
-    const dispatch = useDispatch();
-    const state = useSelector((state) => state.countries.country);
+  const params = useParams();
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state.countries.country);
 
-    const { countryName } = params;
-    useEffect(() => {
-        dispatch(getCountry(countryName));
-    }, [countryName, dispatch]);
+  const { countryName } = params;
+  useEffect(() => {
+    dispatch(getCountry(countryName));
+  }, [countryName, dispatch]);
 
-    return (
-        <>
-            <Header title="Country Info" />
-            {state && <CountryInfo state={state} />}
-        </>
-    );
+  return (
+    <>
+      <Header title="Country Info" />
+      {state && <CountryInfo state={state} />}
+    </>
+  );
 };
 
 export default CountryDetailsPage;

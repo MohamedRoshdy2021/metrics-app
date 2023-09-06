@@ -3,9 +3,9 @@ import axios from 'axios';
 
 export const getCountries = createAsyncThunk('countries/getCountries', async () => {
   const response = await axios.get('https://restcountries.com/v3.1/all');
-  
+
   const filteredData = response.data.filter((country) => country.name.common !== 'Israel');
-  
+
   const EgyptData = [{
     flags: {
       png: 'https://img.freepik.com/premium-vector/3d-realistic-pennant-with-flag_97886-2626.jpg',
