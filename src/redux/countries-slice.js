@@ -1,42 +1,14 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 
 export const getCountries = createAsyncThunk('countries/getCountries', async () => {
-  const response = await axios.get('https://restcountries.com/v3.1/all');
+    const response = await fetch('https://restcountries.com/v3.1/all');
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const data = await response.json();
 
-  const filteredData = response.data.filter((country) => country.name.common !== 'Israel');
+    const filteredData = data.filter((country) => country.name.common !== 'Israel');
 
-  const EgyptData = [{
-    flags: {
-      png: 'https://img.freepik.com/premium-vector/3d-realistic-pennant-with-flag_97886-2626.jpg',
-    },
-    name: {
-      common: 'Egypt',
-      official: 'State of Egypt',
-    },
-    region: 'Africa',
-    capital: ['cairo'],
-    area: 1000.000,
-    population: 105052776,
-    timezones: ['UTC+02:00'],
-    currencies: {
-      ILS: {
-        name: 'Egyption Pound',
-        symbol: 'EG',
-      },
-    },
-    languages: {
-      ara: 'Arabic',
-    },
-  }];
-  const data = [...EgyptData, ...filteredData];
-  return data;
-});
-
-export const getCountry = createAsyncThunk('countries/getCountry', async (name) => {
-  if (name === 'Israel') {
-    return null;
-  } if (name === 'Egypt') {
     const EgyptData = {
       flags: {
         png: 'https://img.freepik.com/premium-vector/3d-realistic-pennant-with-flag_97886-2626.jpg',
@@ -46,13 +18,13 @@ export const getCountry = createAsyncThunk('countries/getCountry', async (name) 
         official: 'State of Egypt',
       },
       region: 'Africa',
-      capital: ['cairo'],
+      capital: ['Cairo'],
       area: 1000.000,
       population: 105052776,
       timezones: ['UTC+02:00'],
       currencies: {
         ILS: {
-          name: 'Egyption pound',
+          name: 'Egyptian Pound',
           symbol: 'EG',
         },
       },
@@ -60,11 +32,47 @@ export const getCountry = createAsyncThunk('countries/getCountry', async (name) 
         ara: 'Arabic',
       },
     };
-    return EgyptData;
-  }
-  const response = await axios.get(`https://restcountries.com/v3.1/name/${name}`);
-  return response.data[0];
+    return [EgyptData, ...filteredData];
 });
+
+export const getCountry = createAsyncThunk('countries/getCountry', async (name) => {
+    if (name === 'Israel') {
+      return null;
+    } if (name === 'Egypt') {
+      const EgyptData = {
+        flags: {
+          png: 'https://img.freepik.com/premium-vector/3d-realistic-pennant-with-flag_97886-2626.jpg',
+        },
+        name: {
+          common: 'Egypt',
+          official: 'State of Egypt',
+        },
+        region: 'Africa',
+        capital: ['Cairo'],
+        area: 1000.000,
+        population: 105052776,
+        timezones: ['UTC+02:00'],
+        currencies: {
+          ILS: {
+            name: 'Egyptian Pound',
+            symbol: 'EG',
+          },
+        },
+        languages: {
+          ara: 'Arabic',
+        },
+      };
+      return EgyptData;
+    }
+
+    const response = await fetch(`https://restcountries.com/v3.1/name/${name}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const data = await response.json();
+    return data[0];
+});
+
 
 const countriesSlice = createSlice({
   name: 'countries',
