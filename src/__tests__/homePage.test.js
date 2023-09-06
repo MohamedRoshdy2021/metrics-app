@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import HomePage from '../pages/HomPage';
+import HomePage from '../components/HomPage';
 
 const mockCountries = [
   {

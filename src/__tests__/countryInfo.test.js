@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect'; // Import the jest-dom library
-import CountryInfo from '../components/Details/CountryInfo';
+import CountryInfo from '../components/CountryInfo';
 
 describe('CountryInfo', () => {
   const state = {
