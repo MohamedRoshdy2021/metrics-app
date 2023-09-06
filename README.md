@@ -144,7 +144,9 @@ If you like this project don't forgt to give a star
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank Microvesre who helped us during our journey
+Design Credit:
+to [Nelson Sakwa](https://www.behance.net/sakwadesignstudio) 
+Original design concept: (https://www.behance.net/gallery/31579789/Ballhead-App-(Free-PSDs))
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
