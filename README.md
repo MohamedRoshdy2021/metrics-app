@@ -13,7 +13,7 @@
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
-- [Video introduction](#Video-introduction)
+- [Video introduction](#Video-Explantion)
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
@@ -57,7 +57,7 @@
 <!-- Features -->
 <p> the project explanation </p> 
 
-### Video introduction <a name="Video-introduction"></a>
+### Video Explantion <a name="Video-Explantion"></a>
 
 - https://www.loom.com/share/6fc2d162e2f14702bfe8584ac5a13cfe
 
